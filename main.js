@@ -5,10 +5,15 @@
 // 3 = Overcast
 // 61 = rain
 // 71  = snow
+let currentCondition = "";
+let currentIsDay = 1;
+let selectedIsDay = 1;
+
 const weatherCodes = { //making the codes into an object
     0: "Sunny",
-    1: "Mostly Sunny", 
-    3: "Cloudy", //2: "Partly Cloudy", we can combine these 2     
+    1: "Mostly Sunny",
+    2: "Partly Cloudy",
+    3: "Cloudy",
     61: "Rainy",
     71: "Snowy"
 };
@@ -54,14 +59,14 @@ const getWeather = async () => { //we use async an await to fetch the api
 
         //getting the references
         const temperatureElement =
-        document.getElementById("temperature");
+            document.getElementById("temperature");
 
         const conditionElement =
-        document.getElementById("condition");
+            document.getElementById("condition");
 
         const timeElement =
-        document.getElementById("time");
-        
+            document.getElementById("time");
+
         //Displaying the data
         temperatureElement.textContent = `Temperature: ${temperature} °C`;
 
@@ -72,26 +77,112 @@ const getWeather = async () => { //we use async an await to fetch the api
         //Day or night:
         const dayNightElement = document.getElementById("dayNight");
 
-        if (isDay === 1) 
-        {
+        if (isDay === 1) {
             dayNightElement.textContent =
-            "It is currently daytime. ☀️";
-        } 
+                "It is currently daytime. ☀️";
+        }
         else {
             dayNightElement.textContent =
-            "It is currently nighttime. 🌙";
+                "It is currently nighttime. 🌙";
         }
 
-        const weatherBtn = document.getElementById("weatherBtn");
-        weatherBtn.addEventListener("click", getWeather);
-        
+
         //button
         const clockElement = document.getElementById("clock");
         clockElement.textContent = displayTime;
 
+        //changingimage 
+        const weatherImage = document.getElementById("weatherImage");
+        function updateImage(condition, isDay) {
+
+            if (condition === "Sunny" && isDay === 1) { //sunny day
+
+                weatherImage.src = "images/day/sunny.png";
+
+            }
+            else if (condition === "Sunny" && isDay === 0) { //sunny night
+
+                weatherImage.src = "images/night/sunny.png";
+
+            }
+            else if (condition === "Rainy" && isDay === 1) { //rainy day
+
+                weatherImage.src = "images/day/rainy.png";
+
+            }
+            else if (condition === "Rainy" && isDay === 0) { //rainy night
+
+                weatherImage.src = "images/night/rainy.png";
+
+            }
+            else if (condition === "Snowy" && isDay === 1) { //snowy day
+
+                weatherImage.src = "images/day/snowy.png";
+
+            }
+            else if (condition === "Snowy" && isDay === 0) { //snowy night
+
+                weatherImage.src = "images/night/snowy.png";
+
+            }
+            else if (condition === "Mostly Sunny" && isDay === 1) { //mostly sunny day
+
+                weatherImage.src = "images/day/mostlySunny.png";
+
+            }
+            else if (condition === "Mostly Sunny" && isDay === 0) { //mostly sunny night
+
+                weatherImage.src = "images/night/mostlySunny.png";
+
+            }
+            else if ((condition === "Cloudy" || condition === "Partly Cloudy") && isDay === 1) { //cloudy day
+
+                weatherImage.src = "images/day/Cloudy.png";
+
+            }
+            else if ((condition === "Cloudy" || condition === "Partly Cloudy") && isDay === 0) { //cloudy night
+
+                weatherImage.src = "images/night/Cloudy.png";
+
+            }
+
+            else {
+                console.log("No iamgefound");
+            }
+        }
+        updateImage(condition, isDay);
+
+        //Dropdown
+
+        const weatherSelect = document.getElementById("weatherSelect");
+        currentCondition = condition;
+        currentIsDay = isDay;
+
+        // Using change so whenever the user selects a different option from the weather dropdown menu:
+        weatherSelect.addEventListener("change", () => {
+
+            // Gets the value of the selected option
+            const selectedWeather = weatherSelect.value;
+
+            if (selectedWeather === "Current") {
+
+                updateImage(currentCondition, currentIsDay);
+
+            }
+            else {
+
+                updateImage(selectedWeather, currentIsDay);
+
+            }
+
+        });
+        
     } catch (error) {
         console.log(error);
     }
 }
+//button to get the weather
+const weatherBtn = document.getElementById("weatherBtn");
+weatherBtn.addEventListener("click", getWeather);
 
 getWeather();

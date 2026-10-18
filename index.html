@@ -15,31 +15,65 @@
         <h1>Weather App</h1>
     </header>
 
-    <body>
+    <main>
         <div id="content">
             <div id="room">
 
                 <div id="clock"></div>
-    
+
                 <img src="images/wallpaper.png" alt="Living Room" id="roomImage">
-    
+
                 <img src="images/day/sunny.png" alt="Weather" id="weatherImage">
-    
+
             </div>
             <aside id="weatherPanel">
+
+                <h2>Weather in Calgary, Alberta:</h2>
+
                 <button id="weatherBtn"> Get Weather </button>
-        
+
                 <p id="temperature">Loading temperature...</p>
-        
+
                 <p id="condition">Loading condition...</p>
-        
+
                 <p id="time">Loading time...</p>
-        
+
                 <p id="dayNight">Loading day or night...</p>
+
+
+                <label for="weatherSelect">
+                    Preview Weather:
+                </label>
+
+                <select id="weatherSelect">
+
+                    <option value="current">
+                        Current Weather
+                    </option>
+
+                    <option value="Sunny">
+                        Sunny
+                    </option>
+
+                    <option value="Mostly Sunny">
+                        Mostly Sunny
+                    </option>
+
+                    <option value="Cloudy">
+                        Cloudy
+                    </option>
+
+                    <option value="Rainy">
+                        Rainy
+                    </option>
+
+                    <option value="Snowy">
+                        Snowy
+                    </option>
+               </select>
             </aside>
         </div>
-
-    </body>
+    </main>
 
     <footer>
         © Sebastian Garcia Velez 2026

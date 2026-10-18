@@ -30,7 +30,7 @@ footer {
 #content {
     display: flex;
     gap: 30px;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
 
     width: 100%;
@@ -119,24 +119,77 @@ footer {
     background-color: rgb(95, 65, 35);
 }
 
- #clock { /*text of the clock */
+#clock {
+    /*text of the clock */
     position: absolute;
 
 
     top: 74.5%;
-    left: 53.8%;
+    left: 53.9%;
 
     color: white;
 
-    font-size: 0.8rem;
+    font-size: 0.8vw;
     font-weight: bold;
 
-    background-color: rgba(0, 0, 0, 0.5);
-
-    padding: 5px 10px;
+    padding: 0.3em 0.75em;
 
     border-radius: 3px;
+    object-fit: cover;
 }
+
+/* Label */
+
+label[for="weatherSelect"] {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Dropdown */
+
+#weatherSelect {
+    width: 100%;
+
+    padding: 10px;
+
+    font-size: 1rem;
+
+    background-color: rgb(69, 46, 20);
+
+    color: white;
+
+    border: 2px solid rgb(88, 57, 34);
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+/* Hover effect */
+
+#weatherSelect:hover {
+    background-color: rgb(95, 65, 35);
+}
+
+/* Focus effect */
+
+#weatherSelect:focus {
+    border-color: goldenrod;
+
+    box-shadow: 0 0 8px rgba(218, 165, 32, 0.5);
+}
+
+/* Dropdown options */
+
+#weatherSelect option {
+    background-color: rgb(69, 46, 20);
+    color: white;
+}
+
 
 /* Tablet and Phone */
 
