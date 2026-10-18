@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +9,35 @@
     <link rel="icon" href="images/x-icon.png" type="image/png">
     <title>WeatherApp</title>
 </head>
+
 <body>
-    <head>
+    <header>
         <h1>Weather App</h1>
-    </head>
+    </header>
 
     <body>
+        <div id="content">
+            <div id="room">
 
-        <img src="images/wallpaper.png" alt="background image" id="image">
-        <button id="weatherBtn"> Get Weather </button>
-
-        <p id="temperature"></p>
+                <div id="clock"></div>
+    
+                <img src="images/wallpaper.png" alt="Living Room" id="roomImage">
+    
+                <img src="images/day/sunny.png" alt="Weather" id="weatherImage">
+    
+            </div>
+            <aside id="weatherPanel">
+                <button id="weatherBtn"> Get Weather </button>
+        
+                <p id="temperature">Loading temperature...</p>
+        
+                <p id="condition">Loading condition...</p>
+        
+                <p id="time">Loading time...</p>
+        
+                <p id="dayNight">Loading day or night...</p>
+            </aside>
+        </div>
 
     </body>
 
@@ -26,4 +45,5 @@
         © Sebastian Garcia Velez 2026
     </footer>
 </body>
+
 </html>

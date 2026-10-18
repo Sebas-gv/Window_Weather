@@ -5,11 +5,10 @@
 // 3 = Overcast
 // 61 = rain
 // 71  = snow
-const weatherCodes = { //making the codes into an array
+const weatherCodes = { //making the codes into an object
     0: "Sunny",
-    1: "Mostly Sunny",
-    2: "Partly Cloudy",
-    3: "Cloudy",
+    1: "Mostly Sunny", 
+    3: "Cloudy", //2: "Partly Cloudy", we can combine these 2     
     61: "Rainy",
     71: "Snowy"
 };
@@ -25,6 +24,7 @@ const getWeather = async () => { //we use async an await to fetch the api
         }
 
         const data = await response.json();
+        console.log("getting elements...");
         // console.log(data);// Testing retriving correct information
         // console.log(data.current.temperature_2m);//Testing specific info
         // console.log(data.current.weather_code);
@@ -32,7 +32,7 @@ const getWeather = async () => { //we use async an await to fetch the api
 
         //Creating variables from the Json
 
-        const condition = weatherCodes[data.current.weather_code]; // creating a variable to get the weather code {get the index and replace the info in the array of codes}
+        const condition = weatherCodes[data.current.weather_code]; // creating a variable to get the weather code {get the index and replace the info in the object of codes}
 
         // console.log(condition)//testing if it's works
         const temperature = data.current.temperature_2m;
@@ -52,10 +52,46 @@ const getWeather = async () => { //we use async an await to fetch the api
         console.log(displayTime);
         console.log(isDay);
 
+        //getting the references
+        const temperatureElement =
+        document.getElementById("temperature");
+
+        const conditionElement =
+        document.getElementById("condition");
+
+        const timeElement =
+        document.getElementById("time");
+        
+        //Displaying the data
+        temperatureElement.textContent = `Temperature: ${temperature} °C`;
+
+        conditionElement.textContent = `Condition: ${condition}`;
+
+        timeElement.textContent = `Time: ${displayTime}`;
+
+        //Day or night:
+        const dayNightElement = document.getElementById("dayNight");
+
+        if (isDay === 1) 
+        {
+            dayNightElement.textContent =
+            "It is currently daytime. ☀️";
+        } 
+        else {
+            dayNightElement.textContent =
+            "It is currently nighttime. 🌙";
+        }
+
+        const weatherBtn = document.getElementById("weatherBtn");
+        weatherBtn.addEventListener("click", getWeather);
+        
+        //button
+        const clockElement = document.getElementById("clock");
+        clockElement.textContent = displayTime;
+
     } catch (error) {
         console.log(error);
     }
 }
-
 
 getWeather();

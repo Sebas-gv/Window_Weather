@@ -2,29 +2,153 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
- }
-
- body {
-    min-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(88, 57, 34);
-    align-items: center;
 }
 
-head, h1, footer {
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: rgb(88, 57, 34);
+}
+
+/* Header & Footer */
+
+header,
+footer {
     margin: 20px;
     color: wheat;
- }
+}
+
+footer {
+    margin-top: auto;
+}
+
+/* Main Layout */
+
+#content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 1400px;
+
+    padding: 20px;
+}
+
+/* Room */
+
+#room {
+    position: relative;
+
+    width: min(1000px, 90vw);
+}
+
+#roomImage {
+    width: 100%;
+    display: block;
+}
+
+/* Weather Scene Inside Window */
+
+#weatherImage {
+    position: absolute;
+
+    top: 15%;
+    left: 27.2%;
+
+    width: 43%;
+    height: 50%;
+
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+/* Weather Panel */
+
+#weatherPanel {
+    background-color: wheat;
+    color: rgb(88, 57, 34);
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    min-width: 250px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#weatherPanel h2 {
+    text-align: center;
+}
+
+#weatherPanel p {
+    font-size: 1.1rem;
+}
+
+/* Button */
 
 #weatherBtn {
     margin-top: 8px;
+
     width: 150px;
     height: 45px;
+
     font-size: 16px;
+
     padding: 10px;
+
     cursor: pointer;
-    background-color: wheat;
-    border-color: transparent;
+
+    background-color: rgb(69, 46, 20);
+    color: white;
+
+    border: none;
     border-radius: 5px;
- }
+}
+
+#weatherBtn:hover {
+    background-color: rgb(95, 65, 35);
+}
+
+ #clock { /*text of the clock */
+    position: absolute;
+
+
+    top: 74.5%;
+    left: 53.8%;
+
+    color: white;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    padding: 5px 10px;
+
+    border-radius: 3px;
+}
+
+/* Tablet and Phone */
+
+@media (max-width: 900px) {
+
+    #content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #weatherPanel {
+        width: 90%;
+        max-width: 500px;
+    }
+}
