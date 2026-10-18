@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+
+ body {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(88, 57, 34);
+    align-items: center;
+}
+
+head, h1, footer {
+    margin: 20px;
+    color: wheat;
+ }
+
+#weatherBtn {
+    margin-top: 8px;
+    width: 150px;
+    height: 45px;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: wheat;
+    border-color: transparent;
+    border-radius: 5px;
+ }
