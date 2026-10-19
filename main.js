@@ -10,8 +10,8 @@ let currentIsDay = 1;
 let selectedIsDay = 1;
 
 const weatherCodes = { //making the codes into an object
-    0: "Sunny",
-    1: "Mostly Sunny",
+    0: "Clear",
+    1: "Mostly Clear",
     2: "Partly Cloudy",
     3: "Cloudy",
     61: "Rainy",
@@ -83,7 +83,7 @@ const getWeather = async () => { //we use async an await to fetch the api
         }
         else {
             dayNightElement.textContent =
-                "It is currently nighttime. 🌙";
+                "It is currently night time. 🌙";
         }
 
 
@@ -95,12 +95,12 @@ const getWeather = async () => { //we use async an await to fetch the api
         const weatherImage = document.getElementById("weatherImage");
         function updateImage(condition, isDay) {
 
-            if (condition === "Sunny" && isDay === 1) { //sunny day
+            if (condition === "Clear" && isDay === 1) { //sunny day
 
                 weatherImage.src = "images/day/sunny.png";
 
             }
-            else if (condition === "Sunny" && isDay === 0) { //sunny night
+            else if (condition === "Clear" && isDay === 0) { //sunny night
 
                 weatherImage.src = "images/night/sunny.png";
 
@@ -125,12 +125,12 @@ const getWeather = async () => { //we use async an await to fetch the api
                 weatherImage.src = "images/night/snowy.png";
 
             }
-            else if (condition === "Mostly Sunny" && isDay === 1) { //mostly sunny day
+            else if (condition === "Mostly Clear" && isDay === 1) { //mostly sunny day
 
                 weatherImage.src = "images/day/mostlySunny.png";
 
             }
-            else if (condition === "Mostly Sunny" && isDay === 0) { //mostly sunny night
+            else if (condition === "Mostly Clear" && isDay === 0) { //mostly sunny night
 
                 weatherImage.src = "images/night/mostlySunny.png";
 
@@ -164,16 +164,7 @@ const getWeather = async () => { //we use async an await to fetch the api
             // Gets the value of the selected option
             const selectedWeather = weatherSelect.value;
 
-            if (selectedWeather === "Current") {
-
-                updateImage(currentCondition, currentIsDay);
-
-            }
-            else {
-
-                updateImage(selectedWeather, currentIsDay);
-
-            }
+            updateImage(selectedWeather, currentIsDay);
 
         });
         
