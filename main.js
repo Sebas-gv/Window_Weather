@@ -95,12 +95,12 @@ const getWeather = async () => { //we use async an await to fetch the api
         const weatherImage = document.getElementById("weatherImage");
         function updateImage(condition, isDay) {
 
-            if (condition === "Clear" && isDay === 1) { //sunny day
+            if (condition === "Clear" && isDay === 1) { //clear day
 
                 weatherImage.src = "images/day/sunny.png";
 
             }
-            else if (condition === "Clear" && isDay === 0) { //sunny night
+            else if (condition === "Clear" && isDay === 0) { //clear night
 
                 weatherImage.src = "images/night/sunny.png";
 
@@ -125,24 +125,24 @@ const getWeather = async () => { //we use async an await to fetch the api
                 weatherImage.src = "images/night/snowy.png";
 
             }
-            else if (condition === "Mostly Clear" && isDay === 1) { //mostly sunny day
+            else if (condition === "Mostly Clear" && isDay === 1) { //mostly clear day
 
                 weatherImage.src = "images/day/mostlySunny.png";
 
             }
-            else if (condition === "Mostly Clear" && isDay === 0) { //mostly sunny night
+            else if (condition === "Mostly Clear" && isDay === 0) { //mostly clear night
 
                 weatherImage.src = "images/night/mostlySunny.png";
 
             }
             else if ((condition === "Cloudy" || condition === "Partly Cloudy") && isDay === 1) { //cloudy day
 
-                weatherImage.src = "images/day/Cloudy.png";
+                weatherImage.src = "images/day/cloudy.png";
 
             }
             else if ((condition === "Cloudy" || condition === "Partly Cloudy") && isDay === 0) { //cloudy night
 
-                weatherImage.src = "images/night/Cloudy.png";
+                weatherImage.src = "images/night/cloudy.png";
 
             }
 
